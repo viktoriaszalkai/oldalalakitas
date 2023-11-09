@@ -1,0 +1,143 @@
+/* Reszponzív weboldal */
+*{
+    margin:0;
+    padding:0;
+    /* * szelektor, minden html elemre vonatkozik */
+    box-sizing: border-box; 
+    /*az elem szélességébe(width érték) beletartozik a padding és a border értéke is*/
+}
+body{
+    background-image: url(kepek/f5825c08f2b0aa17f4e7db22fe1efed3.jpg);
+    background-size: cover;
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    background-color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main{
+    
+    display: grid;
+    grid-template-columns: 150px 3fr 1fr;
+    grid-template-areas:
+        "h h h"
+        "n n n"
+        "b a j"
+        "f f f" ;    /* kialakítunk egy rácsot, amin majd elhelyezzük a gyereket */
+}
+article{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+article img{
+    width: 160px;
+    text-align: center;
+}
+.oszlop{
+    border: 1px solid black;
+    margin:2px;
+    padding: 3px;
+}
+
+/* minden!!! gyerekelemet elnevezek, fontos, hogy minden gyerket elnevezzünk */
+header{
+    grid-area: h;
+}
+article{
+    grid-area: a;
+}
+nav{
+    grid-area: n;
+}
+footer{
+    grid-area: f;
+}
+aside#bal{
+    grid-area: b;
+}
+aside#jobb{
+    grid-area: j;
+}
+
+header, nav, article, footer, aside {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 3px;
+}
+ /* MENÜ kialakítása */
+nav ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    list-style-type: none;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.416);
+}
+nav li{
+    padding: 5px;
+    border: 5px solid rgba(249, 160, 160, 0);
+}
+nav li:hover{
+    border: 5px solid rgb(249, 160, 160);
+}
+nav a{
+    text-decoration: none;
+    color:rgb(249, 160, 160)
+}
+
+/* TABLET NÉZET */
+@media only screen and (max-width:700px) {/* töréspont */
+    body {
+        width: 100%;
+    }
+    main {
+        width: 100%;
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+        "h h"
+        "n n"
+        "b b" 
+        "j j"
+        "a a"
+        "f f" ;    /* kialakítunk egy rácsot, amin majd elhelyezzük a gyereket */
+
+  }
+  article{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+}
+
+/* MOBIL NÉZET-reszponzivitás kialakítása, töréspont kialakítása, ez után már semmit ne írjunk!!! */
+@media only screen and (max-width: 400px) {/* töréspont */
+    body {
+        width: 100%;
+    }
+    main {
+        font-size: 20px;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "h"
+        "n"
+        "a"
+        "b" 
+        "j"
+        "f" ;    /* kialakítunk egy rácsot, amin majd elhelyezzük a gyereket */
+
+  }
+  nav ul{
+
+    grid-template-columns: 1fr;
+    gap: 5px;
+    list-style-type: none;
+    text-align: center;
+}
+article{
+    grid-template-columns: 1fr;
+    gap: 5px;
+    text-align: center;
+}
+}
